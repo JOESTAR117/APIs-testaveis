@@ -1,0 +1,28 @@
+{
+  "name": "apis-testaveis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JOESTAR117/APIs-testaveis.git"
+  },
+  "keywords": [],
+  "author": "Jackson Rios",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JOESTAR117/APIs-testaveis/issues"
+  },
+  "homepage": "https://github.com/JOESTAR117/APIs-testaveis#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
