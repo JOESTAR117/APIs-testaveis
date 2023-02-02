@@ -1,6 +1,13 @@
 {
     "presets": [
-      "node6"
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": true
+          }
+        }
+      ]
     ]
   }
 
