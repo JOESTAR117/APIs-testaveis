@@ -10,7 +10,7 @@ class ProductsController {
       name: 'Default product',
       description: 'product description',
       price: 100
-    }, console.log('Product')]);
+    }]);
   }
 }
 var _default = ProductsController;

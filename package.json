@@ -33,6 +33,8 @@
     "supertest": "^4.0.2"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0"
   }
 }
