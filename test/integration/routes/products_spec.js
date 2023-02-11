@@ -24,15 +24,20 @@ describe('Routes: Products', () => {
     afterEach(async () => await Products.deleteMany())
 
     describe('GET / products', () => {
-        context('when an id is specified', done => {
-            it('should return a list of products', done => {
-
-                request
-                .get(`/products/${defaultId}`)
-                .end((err, res) => {
-                    expect(res.statusCode).to.eql(200)
-                    expect(res.body).to.eql([expectedProduct])
-                    done(err)
+        it('should return a list of products', (done) => {
+            request.get('/products').end((err, res) => {
+                expect(res.body).to.eql([expectedProduct])
+                done(err)
+            })
+        })
+        describe('GET / products', () => {
+            context('when an id is specified', (done) => {
+                it('should return a list of products', (done) => {
+                    request.get(`/products/${defaultId}`).end((err, res) => {
+                        expect(res.statusCode).to.eql(200)
+                        expect(res.body).to.eql([expectedProduct])
+                        done(err)
+                    })
                 })
             })
         })
