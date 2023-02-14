@@ -52,7 +52,7 @@ describe('Controllers: Products', () => {
             const request = {
                 params: {
                     id: fakeId,
-                }
+                },
             }
             const response = {
                 send: sinon.spy(),
@@ -62,6 +62,30 @@ describe('Controllers: Products', () => {
             const productsController = new ProductsController(Products)
             await productsController.getById(request, response)
             sinon.assert.calledWith(response.send, defaultProduct)
+        })
+    })
+
+    describe('create() product', () => {
+        it('should save a new product successfully', async () => {
+            const requestWithBody = Object.assign(
+                {},
+                { body: defaultProduct[0] },
+                defaultRequest
+            )
+            const response = {
+                send: sinon.spy(),
+                status: sinon.stub(),
+            }
+            class fakeProduct {
+                save() {}
+            }
+            response.status.withArgs(201).returns(response)
+            sinon.stub(fakeProduct.prototype, 'save').withArgs().resolves()
+
+            const productsController = new ProductsController(fakeProduct)
+
+            await productsController.create(requestWithBody, response)
+            sinon.assert.calledWith(response.send)
         })
     })
 })
