@@ -41,6 +41,11 @@ class ProductsController {
             res.status(422).send(err.message)
         }
     }
+
+    async remove(req,res) {
+        res.sendStatus(204)
+        return await Promise.resolve()
+    }
 }
 
 export default ProductsController

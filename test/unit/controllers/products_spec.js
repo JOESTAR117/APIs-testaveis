@@ -181,4 +181,31 @@ describe('Controllers: Products', () => {
             })
         })
     })
+
+    describe('delete() product', () => {
+        it('should respond with 204 when the product has been deleted', async () => {
+            const fakeId = 'a-fake-id'
+            const request = {
+                params: {
+                    id: fakeId,
+                },
+            }
+            const response = {
+                sendStatus: sinon.spy(),
+            }
+
+            class fakeProduct {
+                static deleteOne() {}
+            }
+
+            const deleteOneStub = sinon.stub(fakeProduct, 'deleteOne')
+
+            deleteOneStub.withArgs({ _id: fakeId }).resolves()
+
+            const productsController = new ProductsController(fakeProduct)
+
+            await productsController.remove(request, response)
+            sinon.assert.calledWith(response.sendStatus, 204)
+        })
+    })
 })
